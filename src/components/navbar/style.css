@@ -16,6 +16,7 @@
 
 .dark .navbar {
   background: rgba(0, 0, 0, 0.4);
+  color: antiquewhite;
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
@@ -35,7 +36,7 @@
 .nav-links li a {
   text-decoration: none;
   font-weight: 600;
-  color: rgb(183, 185, 240);
+  color: rgb(1, 2, 34);
   font-size: 1rem;
   letter-spacing: 0.5px;
   transition: color 0.25s ease, transform 0.25s ease;

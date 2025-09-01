@@ -1,1 +1,43 @@
 @import "tailwindcss";
+@import url("./normalize.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+}
+
+html {
+  font-family: var(--font-inter);
+  scroll-behavior: smooth;
+}
+:root {
+  --body-bg: linear-gradient(135deg, #d7e2f5, #9fb8f3);
+  --body-text: #1e293b;
+}
+
+.dark {
+  --body-bg: linear-gradient(135deg, #0f172a, #1e293b);
+  --body-text: #f1f5f9;
+}
+
+body {
+-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--body-bg);
+  color: var(--body-text);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: theme('colors.gray.400');
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}

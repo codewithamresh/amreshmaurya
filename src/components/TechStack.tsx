@@ -47,9 +47,9 @@ export const TechStack = ({ isDark, isVisible }: TechStackProps) => {
               </h3>
             </div>
             <div className="flex flex-wrap gap-2">
-              {techs.map((tech) => (
+              {techs.map((tech :any, index: number) => (
                 <span
-                  key={tech}
+                  key={"tech"+index}
                   className={`px-3 py-1 ${
                     isDark ? 'bg-gray-800 text-gray-300' : 'bg-gray-100 text-gray-700'
                   } rounded-full text-sm border ${borderClass} ${hoverBorderClass} transition-all duration-300 hover:scale-110 flex items-center gap-1.5`}

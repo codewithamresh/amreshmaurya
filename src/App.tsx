@@ -4,7 +4,7 @@ import { Hero } from './components/Hero';
 import { Blog } from './components/Blog';
 import { Footer } from './components/Footer';
 import { Projects } from './components/Projects';
-import { TechStack } from './components/TechStack';
+import { Skills } from './components/Skills';
 
 
 function App() {
@@ -13,21 +13,31 @@ function App() {
   const [isDark, setIsDark] = useState(true);
   const [scrollY, setScrollY] = useState(0);
 
+
+ 
   useEffect(() => {
-    setIsVisible(true);
-    const handleMouseMove = (e: MouseEvent) => {
+  // Delay the visibility state to allow initial render to complete
+  const timer = setTimeout(() => setIsVisible(true), 50);
+  
+   const handleMouseMove = (e: MouseEvent) => {
+    requestAnimationFrame(() => {
       setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    });
+  };
+  
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+  
+  window.addEventListener('mousemove', handleMouseMove);
+  window.addEventListener('scroll', handleScroll);
+  
+  return () => {
+    clearTimeout(timer);
+    window.removeEventListener('mousemove', handleMouseMove);
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, []);
 
   const bgClass = isDark ? 'bg-black' : 'bg-gray-50';
   const textClass = isDark ? 'text-white' : 'text-gray-900';
@@ -66,7 +76,8 @@ function App() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-20">
         <Hero isDark={isDark} isVisible={isVisible} />
-        <TechStack isDark={isDark} isVisible={isVisible} />
+        {/* <TechStack isDark={isDark} isVisible={isVisible} /> */}
+         <Skills isDark={isDark} isVisible={isVisible} />
         <Projects isDark={isDark} isVisible={isVisible} />
         <Blog isDark={isDark} isVisible={isVisible} />
         <Footer isDark={isDark} />

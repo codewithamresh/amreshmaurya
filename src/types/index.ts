@@ -14,9 +14,10 @@ export interface BlogPost {
   link: string;
 }
 
-export interface TechStack {
-  frontend: string[];
-  backend: string[];
-  database: string[];
-  tools: string[];
+
+
+export interface Skill {
+  id: string;
+  name: string;
+  image_url: string;
 }

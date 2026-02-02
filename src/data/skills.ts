@@ -189,3 +189,23 @@ export const OtherSkillsArrayList = [
     image_url: "/skills/ubuntu.svg",
   },
 ];
+
+export const AIPoweredToolsArrayList = [
+  {
+    id: "claude-ai",
+    name: "Claude AI",
+    image_url: "/skills/claude.svg"
+  },
+  {
+    id: "cursor-ai",
+    name: "Cursor",
+    image_url: "/skills/cursor.png",
+  },
+
+  {
+    id: "chatgpt",
+    name: "ChatGPT",
+    image_url: "/skills/chatgpt.webp",
+  },
+];
+

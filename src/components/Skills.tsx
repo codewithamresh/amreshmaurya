@@ -1,10 +1,11 @@
-import { Code2, Database, Server, Wrench } from 'lucide-react';
+import { Code2, Database, Server, Sparkles, Wrench } from 'lucide-react';
 import {
   ProgrammingLanguagesArrayList,
   FrontendTechnologiesArrayList,
   BackendTechnologiesArrayList,
   DatabaseArrayList,
   OtherSkillsArrayList,
+  AIPoweredToolsArrayList,
 } from '../data/skills';
 
 import type { Skill } from '../types/index';
@@ -98,15 +99,15 @@ export const Skills = ({ isDark, isVisible }: SkillsProps) => {
       </h2>
 
       <div className="space-y-8">
-        <SkillCategory
-          title="Programming Languages"
-          icon={<Code2 className="text-purple-400 w-6 h-6" />}
-          skills={ProgrammingLanguagesArrayList}
+     
+    <SkillCategory
+          title="Backend Technologies"
+          icon={<Server className="text-green-400 w-6 h-6" />}
+          skills={BackendTechnologiesArrayList}
           isDark={isDark}
-          delay={0}
+          delay={200}
           isVisible={isVisible}
         />
-
         <SkillCategory
           title="Frontend Technologies"
           icon={<Code2 className="text-blue-400 w-6 h-6" />}
@@ -116,12 +117,12 @@ export const Skills = ({ isDark, isVisible }: SkillsProps) => {
           isVisible={isVisible}
         />
 
-        <SkillCategory
-          title="Backend Technologies"
-          icon={<Server className="text-green-400 w-6 h-6" />}
-          skills={BackendTechnologiesArrayList}
+      <SkillCategory
+          title="AI-Powered Tools"
+          icon={<Sparkles className="text-pink-400 w-6 h-6" />}
+          skills={AIPoweredToolsArrayList}
           isDark={isDark}
-          delay={200}
+          delay={400}
           isVisible={isVisible}
         />
 
@@ -134,12 +135,22 @@ export const Skills = ({ isDark, isVisible }: SkillsProps) => {
           isVisible={isVisible}
         />
 
+
+        
         <SkillCategory
           title="Tools & Technologies"
           icon={<Wrench className="text-yellow-400 w-6 h-6" />}
           skills={OtherSkillsArrayList}
           isDark={isDark}
           delay={400}
+          isVisible={isVisible}
+        />
+           <SkillCategory
+          title="Programming Languages"
+          icon={<Code2 className="text-purple-400 w-6 h-6" />}
+          skills={ProgrammingLanguagesArrayList}
+          isDark={isDark}
+          delay={0}
           isVisible={isVisible}
         />
       </div>

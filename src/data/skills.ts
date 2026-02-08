@@ -14,7 +14,7 @@ export const ProgrammingLanguagesArrayList = [
     name: "Java",
     image_url: "/skills/java.webp",
   },
-    {
+  {
     id: "py",
     name: "Python",
     image_url: "/skills/python.png",
@@ -192,9 +192,15 @@ export const OtherSkillsArrayList = [
 
 export const AIPoweredToolsArrayList = [
   {
+    id: "antigravity-code",
+    name: "Antigravity",
+    image_url: "/skills/antigravity.png",
+  },
+
+  {
     id: "claude-ai",
     name: "Claude AI",
-    image_url: "/skills/claude.svg"
+    image_url: "/skills/claude.svg",
   },
   {
     id: "cursor-ai",
@@ -208,4 +214,3 @@ export const AIPoweredToolsArrayList = [
     image_url: "/skills/chatgpt.webp",
   },
 ];
-

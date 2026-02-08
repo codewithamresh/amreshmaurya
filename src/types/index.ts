@@ -4,7 +4,8 @@ export interface Project {
   stars: number;
   tech: string;
   link: string;
-  github:string
+  github: string;
+  image_url: string;
 }
 
 export interface BlogPost {
@@ -12,9 +13,8 @@ export interface BlogPost {
   date: string;
   description: string;
   link: string;
+  tags:string[];
 }
-
-
 
 export interface Skill {
   id: string;

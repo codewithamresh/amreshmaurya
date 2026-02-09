@@ -19,21 +19,20 @@ npx tailwindcss init -p
 ## Step 3: Configure Tailwind CSS
 
 **tailwind.config.js**
+
 ```js
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
   },
   plugins: [],
-}
+};
 ```
 
 **src/index.css**
+
 ```css
 @tailwind base;
 @tailwind components;
@@ -63,6 +62,7 @@ src/
 ## Step 5: Create Files
 
 ### src/types/index.ts
+
 ```typescript
 export interface Project {
   name: string;
@@ -88,83 +88,87 @@ export interface TechStack {
 ```
 
 ### src/data/portfolio.ts
+
 ```typescript
-import { TechStack, Project, BlogPost } from '../types';
+import { TechStack, Project, BlogPost } from "../types";
 
 export const techIcons: Record<string, string> = {
-  'React': '⚛️',
-  'Next.js': '▲',
-  'TypeScript': 'TS',
-  'Tailwind CSS': '🎨',
-  'Redux': '🔄',
-  'Express.js': '🚂',
-  'Spring Boot': '🍃',
-  'Node.js': '🟢',
-  'Java': '☕',
-  'MySQL': '🐬',
-  'PostgreSQL': '🐘',
-  'MongoDB': '🍃',
-  'Oracle': '🔴',
-  'Git': '📦',
-  'Docker': '🐳',
-  'AWS': '☁️',
-  'Linux': '🐧'
+  React: "⚛️",
+  "Next.js": "▲",
+  TypeScript: "TS",
+  "Tailwind CSS": "🎨",
+  Redux: "🔄",
+  "Express.js": "🚂",
+  "Spring Boot": "🍃",
+  "Node.js": "🟢",
+  Java: "☕",
+  MySQL: "🐬",
+  PostgreSQL: "🐘",
+  MongoDB: "🍃",
+  Oracle: "🔴",
+  Git: "📦",
+  Docker: "🐳",
+  AWS: "☁️",
+  Linux: "🐧",
 };
 
 export const techStack: TechStack = {
-  frontend: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Redux'],
-  backend: ['Express.js', 'Spring Boot', 'Node.js', 'Java'],
-  database: ['MySQL', 'PostgreSQL', 'MongoDB', 'Oracle'],
-  tools: ['Git', 'Docker', 'AWS', 'Linux']
+  frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Redux"],
+  backend: ["Express.js", "Spring Boot", "Node.js", "Java"],
+  database: ["MySQL", "PostgreSQL", "MongoDB", "Oracle"],
+  tools: ["Git", "Docker", "AWS", "Linux"],
 };
 
 export const projects: Project[] = [
   {
-    name: 'zsh-theme',
-    description: 'oh-my-zsh terminal theme to increase productivity during coding',
+    name: "zsh-theme",
+    description:
+      "oh-my-zsh terminal theme to increase productivity during coding",
     stars: 24,
-    tech: 'Shell',
-    link: 'https://github.com/amreshpro/zsh-theme'
+    tech: "Shell",
+    link: "https://github.com/amreshpro/zsh-theme",
   },
   {
-    name: 'filmiflix',
-    description: 'Movie website showing cast, director, and videos of searched movies',
+    name: "filmiflix",
+    description:
+      "Movie website showing cast, director, and videos of searched movies",
     stars: 3,
-    tech: 'TypeScript',
-    link: 'https://github.com/amreshpro/filmiflix'
+    tech: "TypeScript",
+    link: "https://github.com/amreshpro/filmiflix",
   },
   {
-    name: 'blogjs',
-    description: 'Blog application built with Express.js',
+    name: "blogjs",
+    description: "Blog application built with Express.js",
     stars: 1,
-    tech: 'TypeScript',
-    link: 'https://github.com/amreshpro/blogjs'
-  }
+    tech: "TypeScript",
+    link: "https://github.com/amreshpro/blogjs",
+  },
 ];
 
 export const blogPosts: BlogPost[] = [
   {
-    title: 'JavaScript Best Practices',
-    date: '2024',
-    description: 'Essential scripting language for the web',
-    link: 'https://amreshpro.medium.com'
+    title: "JavaScript Best Practices",
+    date: "2024",
+    description: "Essential scripting language for the web",
+    link: "https://amreshpro.medium.com",
   },
   {
-    title: 'Building with React & Express',
-    date: '2024',
-    description: 'Full stack development insights',
-    link: 'https://amreshpro.medium.com'
+    title: "Building with React & Express",
+    date: "2024",
+    description: "Full stack development insights",
+    link: "https://amreshpro.medium.com",
   },
   {
-    title: 'Terminal Productivity Tips',
-    date: '2024',
-    description: 'Enhance your development workflow',
-    link: 'https://amreshpro.medium.com'
-  }
+    title: "Terminal Productivity Tips",
+    date: "2024",
+    description: "Enhance your development workflow",
+    link: "https://amreshpro.medium.com",
+  },
 ];
 ```
 
 ### src/components/ThemeToggle.tsx
+
 ```typescript
 import { Sun, Moon } from 'lucide-react';
 
@@ -195,6 +199,7 @@ export const ThemeToggle = ({ isDark, toggleTheme }: ThemeToggleProps) => {
 ```
 
 ### src/components/Hero.tsx
+
 ```typescript
 import { Github, Linkedin, Mail, ExternalLink, Terminal } from 'lucide-react';
 
@@ -321,6 +326,7 @@ export const Hero = ({ isDark, isVisible }: HeroProps) => {
 ```
 
 ### src/components/TechStack.tsx
+
 ```typescript
 import { Code2, Database, Terminal, ExternalLink } from 'lucide-react';
 import { techStack, techIcons } from '../data/portfolio';
@@ -392,6 +398,7 @@ export const TechStack = ({ isDark, isVisible }: TechStackProps) => {
 ```
 
 ### src/components/Projects.tsx
+
 ```typescript
 import { Github, ExternalLink } from 'lucide-react';
 import { projects } from '../data/portfolio';
@@ -483,6 +490,7 @@ export const Projects = ({ isDark, isVisible }: ProjectsProps) => {
 ```
 
 ### src/components/Blog.tsx
+
 ```typescript
 import { BookOpen, Calendar, ExternalLink } from 'lucide-react';
 import { blogPosts } from '../data/portfolio';
@@ -563,6 +571,7 @@ export const Blog = ({ isDark, isVisible }: BlogProps) => {
 ```
 
 ### src/components/Footer.tsx
+
 ```typescript
 interface FooterProps {
   isDark: boolean;
@@ -583,6 +592,7 @@ export const Footer = ({ isDark }: FooterProps) => {
 ```
 
 ### src/App.tsx
+
 ```typescript
 import { useState, useEffect } from 'react';
 import { ThemeToggle } from './components/ThemeToggle';
@@ -677,6 +687,7 @@ export default App;
 ```
 
 ### src/main.tsx
+
 ```typescript
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'

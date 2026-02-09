@@ -13,7 +13,7 @@ export interface BlogPost {
   date: string;
   description: string;
   link: string;
-  tags:string[];
+  tags: string[];
 }
 
 export interface Skill {

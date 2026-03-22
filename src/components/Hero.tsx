@@ -1,4 +1,5 @@
 import { Github, Linkedin, Mail, ExternalLink, Terminal } from "lucide-react";
+import heroData from "../data/heroData";
 
 interface HeroProps {
   isDark: boolean;
@@ -14,9 +15,8 @@ export const Hero = ({ isDark, isVisible }: HeroProps) => {
 
   return (
     <section
-      className={`relative min-h-screen flex flex-col justify-center transition-all duration-1000 ${
-        isVisible ? "opacity-100" : "opacity-0"
-      }`}
+      className={`relative min-h-screen flex flex-col justify-center transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"
+        }`}
     >
       {/* Background Decorative Blurs */}
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
@@ -25,29 +25,27 @@ export const Hero = ({ isDark, isVisible }: HeroProps) => {
       <div className="relative z-10">
         {/* Status Badge */}
         <div
-          className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-8 transition-all duration-700 delay-100 ${
-            isDark
+          className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-8 transition-all duration-700 delay-100 ${isDark
               ? "bg-gray-900/80 border-gray-700 shadow-2xl shadow-blue-500/5"
               : "bg-gray-100 border-gray-300"
-          } ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+            } ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
         >
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
           </span>
           <span className={`text-xs font-mono font-medium ${subTextColor}`}>
-            Available for Engineer roles
+            Open for Backend Engineering Roles
           </span>
         </div>
 
         {/* Main Heading: Focusing on the hybrid strength */}
         <div className="max-w-5xl mb-12">
           <h1
-            className={`text-6xl md:text-8xl font-black tracking-tight mb-8 leading-[0.85] transition-all duration-700 delay-200 ${
-              isVisible
+            className={`text-6xl md:text-8xl font-black tracking-tight mb-8 leading-[0.85] transition-all duration-700 delay-200 ${isVisible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-10 opacity-0"
-            }`}
+              }`}
           >
             Engineering <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
@@ -56,11 +54,10 @@ export const Hero = ({ isDark, isVisible }: HeroProps) => {
           </h1>
 
           <div
-            className={`flex items-center gap-4 transition-all duration-700 delay-300 ${
-              isVisible
+            className={`flex items-center gap-4 transition-all duration-700 delay-300 ${isVisible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-10 opacity-0"
-            }`}
+              }`}
           >
             <p
               className={`text-xl md:text-2xl font-light ${subTextColor} max-w-2xl leading-relaxed`}
@@ -69,24 +66,23 @@ export const Hero = ({ isDark, isVisible }: HeroProps) => {
               <span className={`font-semibold ${textColor}`}>
                 Amresh Maurya
               </span>
-              , a Backend Engineer with a background in{" "}
+              , a Backend Engineer specializing in{" "}
               <span className="text-blue-500 font-medium italic underline decoration-blue-500/20">
-                Systems Consulting
+                distributed systems
               </span>{" "}
-              and a year of{" "}
+              and{" "}
               <span className="text-purple-500 font-medium">
-                Technical Education
+                clean architecture
               </span>
-              . I build robust APIs and clear documentation.
+              . With experience in Go, Spring Boot, and system design, I build scalable, production-ready backends.
             </p>
           </div>
         </div>
 
         {/* Metric Bar: Highlighting your 1+ years of work/teaching */}
         <div
-          className={`grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16 py-10 border-y transition-all duration-1000 delay-500 ${
-            isDark ? "border-white/10" : "border-black/5"
-          } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          className={`grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16 py-10 border-y transition-all duration-1000 delay-500 ${isDark ? "border-white/10" : "border-black/5"
+            } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
         >
           {/* Metric 1: Backend Consulting */}
           <div className="group flex flex-col items-center md:items-start">
@@ -138,9 +134,8 @@ export const Hero = ({ isDark, isVisible }: HeroProps) => {
 
         {/* Action Grid */}
         <div
-          className={`grid grid-cols-1 md:grid-cols-12 gap-4 transition-all duration-700 delay-400 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
+          className={`grid grid-cols-1 md:grid-cols-12 gap-4 transition-all duration-700 delay-400 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            }`}
         >
           {/* Main CTA */}
           <div className="md:col-span-5 flex flex-col gap-4">
@@ -191,15 +186,14 @@ export const Hero = ({ isDark, isVisible }: HeroProps) => {
                 <Terminal className="w-6 h-6 text-blue-500" />
               </div>
               <div className="flex flex-wrap gap-2 justify-end max-w-[200px]">
-                {["TypeScript", "Node.js", "PostgreSQL", "React"].map(
+                {["Goalng", "Java", "SpringBoot", "Node.js", "PostgreSQL"].map(
                   (tech, i) => (
                     <div
                       key={i}
-                      className={`px-3 py-1 text-[10px] font-mono border rounded-full uppercase tracking-tighter ${
-                        isDark
+                      className={`px-3 py-1 text-[10px] font-mono border rounded-full uppercase tracking-tighter ${isDark
                           ? "bg-white/5 border-white/10 text-gray-400"
                           : "bg-black/5 border-black/10 text-gray-600"
-                      }`}
+                        }`}
                     >
                       {tech}
                     </div>
@@ -212,8 +206,7 @@ export const Hero = ({ isDark, isVisible }: HeroProps) => {
               <p
                 className={`text-xl font-mono mb-4 leading-tight italic ${textColor}`}
               >
-                "Any fool can write code that a computer understands. Good
-                programmers write code that humans understand."
+                {heroData?.quote}
               </p>
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-1">

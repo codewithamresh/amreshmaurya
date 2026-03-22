@@ -1,24 +1,34 @@
 export const ProgrammingLanguagesArrayList = [
   {
-    id: "js",
-    name: "Javascript",
-    image_url: "/skills/js.png",
-  },
-  {
-    id: "ts",
-    name: "Typescript",
-    image_url: "/skills/typescript.png",
-  },
-  {
     id: "javapl",
     name: "Java",
     image_url: "/skills/java.webp",
   },
-  {
-    id: "py",
-    name: "Python",
-    image_url: "/skills/python.png",
+    {
+    id: "golangpl",
+    name: "Golang",
+    image_url: "/skills/go.png",
   },
+  {
+    id:"nodejs",
+    name:"Nodejs",
+    image_url:"/skills/nodejs.svg"
+  },
+  // {
+  //   id: "js",
+  //   name: "Javascript",
+  //   image_url: "/skills/js.png",
+  // },
+  // {
+  //   id: "ts",
+  //   name: "Typescript",
+  //   image_url: "/skills/typescript.png",
+  // },
+  // {
+  //   id: "py",
+  //   name: "Python",
+  //   image_url: "/skills/python.png",
+  // },
 ];
 
 export const FrontendTechnologiesArrayList = [
@@ -51,32 +61,32 @@ export const FrontendTechnologiesArrayList = [
 ];
 
 export const BackendTechnologiesArrayList = [
-  // {
-  //   id: "gin-gonic",
-  //   name: "Gin-Gonic",
-  //   image_url: "/skills/gin.png",
-  // },
-
   {
-    id: "nodejs",
-    name: "Nodejs",
-    image_url: "/skills/nodejs.svg",
+    id: "gin-gonic",
+    name: "Gin-Gonic",
+    image_url: "/skills/gin.png",
+  },
+
+  // {
+  //   id: "nodejs",
+  //   name: "Nodejs",
+  //   image_url: "/skills/nodejs.svg",
+  // },
+  {
+    id: "spring-boot",
+    name: "SpringBoot",
+    image_url: "/skills/springboot.png",
   },
   {
     id: "techidexpress",
     name: "Express",
     image_url: "/skills/expressjs.png",
   },
-  {
-    id: "nestjs",
-    name: "Nestjs",
-    image_url: "/skills/nest.png",
-  },
-  {
-    id: "spring-boot",
-    name: "SpringBoot",
-    image_url: "/skills/springboot.png",
-  },
+  // {
+  //   id: "nestjs",
+  //   name: "Nestjs",
+  //   image_url: "/skills/nest.png",
+  // },
 ];
 
 export const SkillsArrayList = [
@@ -149,11 +159,11 @@ export const DatabaseArrayList = [
     name: "Postgres",
     image_url: "/skills/postgre.png",
   },
-  //   {
-  //     id: "db-nosql",
-  //     name: "MongoDB",
-  //     image_url: "/skills/mongodb.png",
-  //   },
+  {
+    id: "db-nosql",
+    name: "MongoDB",
+    image_url: "/skills/mongodb.png",
+  },
 ];
 
 export const OtherSkillsArrayList = [

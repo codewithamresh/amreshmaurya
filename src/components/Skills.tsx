@@ -1,19 +1,15 @@
 import {
-  Code2,
   Database,
   Server,
   Sparkles,
-  Wrench,
   Languages,
   ChevronRight,
 } from "lucide-react";
 import { useState } from "react";
 import {
   ProgrammingLanguagesArrayList,
-  FrontendTechnologiesArrayList,
   BackendTechnologiesArrayList,
   DatabaseArrayList,
-  OtherSkillsArrayList,
   AIPoweredToolsArrayList,
 } from "../data/skills";
 
@@ -38,18 +34,12 @@ export const Skills = ({ isDark, isVisible }: SkillsProps) => {
       skills: BackendTechnologiesArrayList,
       color: "text-green-400",
     },
-    {
-      title: "Frontend",
-      icon: <Code2 />,
-      skills: FrontendTechnologiesArrayList,
-      color: "text-blue-400",
-    },
-    {
-      title: "AI Tools",
-      icon: <Sparkles />,
-      skills: AIPoweredToolsArrayList,
-      color: "text-pink-400",
-    },
+    // {
+    //   title: "Frontend",
+    //   icon: <Code2 />,
+    //   skills: FrontendTechnologiesArrayList,
+    //   color: "text-blue-400",
+    // },
     {
       title: "Databases",
       icon: <Database />,
@@ -57,11 +47,17 @@ export const Skills = ({ isDark, isVisible }: SkillsProps) => {
       color: "text-orange-400",
     },
     {
-      title: "DevOps",
-      icon: <Wrench />,
-      skills: OtherSkillsArrayList,
-      color: "text-yellow-400",
+      title: "AI Tools",
+      icon: <Sparkles />,
+      skills: AIPoweredToolsArrayList,
+      color: "text-pink-400",
     },
+    // {
+    //   title: "DevOps",
+    //   icon: <Wrench />,
+    //   skills: OtherSkillsArrayList,
+    //   color: "text-yellow-400",
+    // },
   ];
 
   const textClass = isDark ? "text-white" : "text-gray-900";
@@ -103,7 +99,7 @@ export const Skills = ({ isDark, isVisible }: SkillsProps) => {
                   }`}
                 >
                   <div
-                    className={`flex items-center gap-3 font-medium ${activeTab === idx ? "text-indigo-500" : subTextClass}`}
+                    className={`  flex items-center gap-3 font-medium ${activeTab === idx ? "text-indigo-500" : subTextClass}`}
                   >
                     <span className={activeTab === idx ? cat.color : ""}>
                       {cat.icon}
@@ -127,7 +123,7 @@ export const Skills = ({ isDark, isVisible }: SkillsProps) => {
             {categories[activeTab].skills.map((skill, i) => (
               <div
                 key={skill.id}
-                className={`group relative p-6 rounded-2xl border transition-all duration-500 ${
+                className={`group relative p-6 h-fit rounded-2xl border transition-all duration-500 ${
                   isDark
                     ? "bg-gray-900/50 border-gray-800"
                     : "bg-white border-gray-100"

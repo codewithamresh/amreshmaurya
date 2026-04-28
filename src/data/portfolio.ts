@@ -3,14 +3,13 @@ import type { Project, BlogPost } from "../types/index";
 export const projects: Project[] = [
 
 {
-  name: "AuthHub - OAuth2 Authorization Server",
-  description:
-    "Complete OAuth2 authorization server built with Spring Security 6. Supports OAuth2 flows (authorization code, client credentials), JWT tokens, multi-factor authentication, social login (Google, GitHub), and role-based access control. Implements refresh token rotation and session management.",
-  stars: 0,
-  tech: "Spring Boot, Spring Security, OAuth2, JWT, Redis, PostgreSQL, Keycloak",
-  link: "https://github.com/amreshcraft/authhub",
-  github: "https://github.com/amreshcraft/authhub",
-  image_url: "/projects/spring-auth.png",
+  "name": "BookStore - E-commerce Backend",
+  "description": "A complete e-commerce backend application built with Spring Boot. Features include user authentication with JWT, role-based access control, product and inventory management, cart and order processing, secure REST APIs, and AWS S3 integration for image storage. Designed with scalable architecture and clean code practices.",
+  "stars": 0,
+  "tech": "Spring Boot, Spring Security, JWT, PostgreSQL, AWS S3, Docker",
+  "link": "https://github.com/amreshcraft/bookstore",
+  "github": "https://github.com/amreshcraft/bookstore",
+  "image_url": "/projects/bookstore.png"
 },
 {
   name: "GoCommerce API",

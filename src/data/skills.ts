@@ -61,22 +61,22 @@ export const FrontendTechnologiesArrayList = [
 ];
 
 export const BackendTechnologiesArrayList = [
-  {
-    id: "gin-gonic",
-    name: "Gin-Gonic",
-    image_url: "/skills/gin.png",
-  },
-
+  
   // {
-  //   id: "nodejs",
-  //   name: "Nodejs",
-  //   image_url: "/skills/nodejs.svg",
-  // },
-  {
-    id: "spring-boot",
-    name: "SpringBoot",
-    image_url: "/skills/springboot.png",
-  },
+    //   id: "nodejs",
+    //   name: "Nodejs",
+    //   image_url: "/skills/nodejs.svg",
+    // },
+    {
+      id: "spring-boot",
+      name: "SpringBoot",
+      image_url: "/skills/springboot.png",
+    },
+    {
+      id: "gin-gonic",
+      name: "Gin-Gonic",
+      image_url: "/skills/gin.png",
+    },
   {
     id: "techidexpress",
     name: "Express",

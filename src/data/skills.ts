@@ -24,11 +24,11 @@ export const ProgrammingLanguagesArrayList = [
   //   name: "Typescript",
   //   image_url: "/skills/typescript.png",
   // },
-  // {
-  //   id: "py",
-  //   name: "Python",
-  //   image_url: "/skills/python.png",
-  // },
+  {
+    id: "py",
+    name: "Python",
+    image_url: "/skills/python.png",
+  },
 ];
 
 export const FrontendTechnologiesArrayList = [

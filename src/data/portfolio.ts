@@ -7,20 +7,20 @@ export const projects: Project[] = [
   "description": "A complete e-commerce backend application built with Spring Boot. Features include user authentication with JWT, role-based access control, product and inventory management, cart and order processing, secure REST APIs, and AWS S3 integration for image storage. Designed with scalable architecture and clean code practices.",
   "stars": 0,
   "tech": "Spring Boot, Spring Security, JWT, PostgreSQL, AWS S3, Docker",
-  "link": "https://github.com/amreshcraft/bookstore",
+  "link": "https://api.amreshmaurya.com",
   "github": "https://github.com/amreshcraft/bookstore",
   "image_url": "/projects/bookstore.png"
 },
-{
-  name: "GoCommerce API",
-  description:
-    "Production-ready e-commerce REST API built with Go, following clean architecture principles. Implements JWT authentication, PostgreSQL with GORM, Redis caching, Docker containerization, and comprehensive logging. Features include product management, user cart, order processing, and Stripe payment integration.",
-  stars: 0,
-  tech: "Go, Gin/Echo, PostgreSQL, Redis, JWT, Docker, Stripe",
-  link: "https://github.com/amreshcraft/gocommerce",
-  github: "https://github.com/amreshcraft/gocommerce",
-  image_url: "/projects/go-ecommerce.png",
-}
+// {
+//   name: "GoCommerce API",
+//   description:
+//     "Production-ready e-commerce REST API built with Go, following clean architecture principles. Implements JWT authentication, PostgreSQL with GORM, Redis caching, Docker containerization, and comprehensive logging. Features include product management, user cart, order processing, and Stripe payment integration.",
+//   stars: 0,
+//   tech: "Go, Gin/Echo, PostgreSQL, Redis, JWT, Docker, Stripe",
+//   link: "https://github.com/amreshcraft/gocommerce",
+//   github: "https://github.com/amreshcraft/gocommerce",
+//   image_url: "/projects/go-ecommerce.png",
+// }
 
   // {
   //   name: "Tenant Lock",

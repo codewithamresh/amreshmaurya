@@ -86,6 +86,7 @@ export const Projects = ({ isDark, isVisible }: ProjectsProps) => {
 
               {/* Project Details */}
               <div className="w-full md:w-2/5 space-y-6">
+              
                 <div className="flex items-center gap-4">
                   <span className="text-4xl font-black opacity-10 font-mono">
                     0{idx + 1}
@@ -127,7 +128,22 @@ export const Projects = ({ isDark, isVisible }: ProjectsProps) => {
                     </span>
                   ))}
                 </div>
-
+<div className="links flex items-center gap-4 mt-4">
+  <a
+                      href={project.link}
+                      className="flex items-center gap-2 p-2 px-4 bg-slate-800 border-2 border-b-fuchsia-600  border-t-amber-600 border-l-blue-600 border-r-rose-600 rounded-full text-purple-100 hover:scale-110 transition-transform shadow-xl"
+                     
+                    >
+                  Live    <ExternalLink className="w-6 h-6" />
+                    </a>
+      <a
+                      href={project.github}
+                      className="flex items-center gap-2 p-2 px-4 bg-slate-800 border-2 border-b-fuchsia-600  border-t-amber-600 border-l-blue-600 border-r-rose-600 rounded-full text-purple-100 hover:scale-110 transition-transform shadow-xl"
+                    >
+                  Github    <Github className="w-6 h-6" />
+                    </a>
+                    
+</div>
                 <div className="pt-4">
                   <a
                     href={project.link}

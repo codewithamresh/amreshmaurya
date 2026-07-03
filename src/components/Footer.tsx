@@ -22,11 +22,10 @@ export const Footer = ({ isDark }: FooterProps) => {
       {/* Scroll to top floating button - purely for UX */}
       <button
         onClick={scrollToTop}
-        className={`absolute -top-6 left-1/2 -translate-x-1/2 p-3 rounded-full border shadow-xl transition-all hover:-translate-y-1 active:scale-95 ${
-          isDark
+        className={`absolute -top-6 left-1/2 -translate-x-1/2 p-3 rounded-full border shadow-xl transition-all hover:-translate-y-1 active:scale-95 ${isDark
             ? "bg-gray-900 border-gray-700 text-white"
             : "bg-white border-gray-200 text-gray-900"
-        }`}
+          }`}
       >
         <ArrowUp className="w-5 h-5" />
       </button>
@@ -41,8 +40,7 @@ export const Footer = ({ isDark }: FooterProps) => {
             <span className={headingClass}>Amresh Maurya</span>
           </div>
           <p className={`${textClass} text-sm leading-relaxed max-w-xs`}>
-            Building digital products that balance beautiful design with
-            world-class engineering.
+            Building reliable backend applications with Java, Spring Boot, SQL, and clean software design.
           </p>
         </div>
 
@@ -58,11 +56,10 @@ export const Footer = ({ isDark }: FooterProps) => {
               <a
                 key={idx}
                 href={social.href}
-                className={`p-3 rounded-xl border transition-all hover:scale-110 ${
-                  isDark
+                className={`p-3 rounded-xl border transition-all hover:scale-110 ${isDark
                     ? "bg-gray-900/50 border-gray-800 hover:border-blue-500/50 text-gray-400 hover:text-white"
                     : "bg-gray-50 border-gray-200 hover:border-blue-500/50 text-gray-600 hover:text-black"
-                }`}
+                  }`}
               >
                 <social.icon className="w-5 h-5" />
               </a>

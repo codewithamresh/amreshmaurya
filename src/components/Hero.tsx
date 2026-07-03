@@ -47,9 +47,9 @@ export const Hero = ({ isDark, isVisible }: HeroProps) => {
                 : "translate-y-10 opacity-0"
               }`}
           >
-            Engineering <br />
+            Building Reliable  <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-              Integrity.
+          Backend Solutions.
             </span>
           </h1>
 
@@ -64,17 +64,9 @@ export const Hero = ({ isDark, isVisible }: HeroProps) => {
             >
               I'm{" "}
               <span className={`font-semibold ${textColor}`}>
-                Amresh Maurya
+                Amresh Maurya, 
               </span>
-              , a Backend Engineer specializing in{" "}
-              <span className="text-blue-500 font-medium italic underline decoration-blue-500/20">
-                distributed systems
-              </span>{" "}
-              and{" "}
-              <span className="text-purple-500 font-medium">
-                clean architecture
-              </span>
-              . With experience in Go, Spring Boot, and system design, I build scalable, production-ready backends.
+       an aspiring Java Backend Developer. I build backend applications using Java, Spring Boot, SQL, and REST APIs.
             </p>
           </div>
         </div>
@@ -88,14 +80,14 @@ export const Hero = ({ isDark, isVisible }: HeroProps) => {
           <div className="group flex flex-col items-center md:items-start">
             <div className="flex items-baseline gap-1">
               <p className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-b from-blue-400 to-blue-600">
-                3+
+                4+
               </p>
-              <span className="text-sm font-bold text-blue-500/50">Mo.</span>
+              <span className="text-sm font-bold text-blue-500/50">Months</span>
             </div>
             <p
               className={`text-[10px] mt-2 uppercase tracking-[0.3em] font-black ${subTextColor} group-hover:text-blue-500 transition-colors`}
             >
-              Systems Consulting
+              Consultant Software Developer 
             </p>
             <div className="h-0.5 w-0 group-hover:w-12 bg-blue-500 transition-all duration-500 mt-1" />
           </div>
@@ -106,12 +98,12 @@ export const Hero = ({ isDark, isVisible }: HeroProps) => {
               <p className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-b from-purple-400 to-purple-600">
                 1+
               </p>
-              <span className="text-sm font-bold text-purple-500/50">Yr.</span>
+              <span className="text-sm font-bold text-purple-500/50">Years</span>
             </div>
             <p
               className={`text-[10px] mt-2 uppercase tracking-[0.3em] font-black ${subTextColor} group-hover:text-purple-500 transition-colors`}
             >
-              Technical Pedagogy
+        PGT  Computer Science Teacher
             </p>
             <div className="h-0.5 w-0 group-hover:w-12 bg-purple-500 transition-all duration-500 mt-1" />
           </div>
@@ -120,7 +112,7 @@ export const Hero = ({ isDark, isVisible }: HeroProps) => {
           <div className="group flex flex-col items-center md:items-start">
             <div className="flex items-baseline gap-1">
               <p className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-b from-green-400 to-green-600">
-                100%
+                Focused
               </p>
             </div>
             <p

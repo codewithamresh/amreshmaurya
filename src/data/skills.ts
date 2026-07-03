@@ -4,39 +4,37 @@ export const ProgrammingLanguagesArrayList = [
     name: "Java",
     image_url: "/skills/java.webp",
   },
+  {
+    id: "js",
+    name: "Javascript",
+    image_url: "/skills/js.png",
+  },
     {
-    id: "golangpl",
-    name: "Golang",
-    image_url: "/skills/go.png",
+    id: "ts",
+    name: "Typescript",
+    image_url: "/skills/typescript.png",
   },
   {
-    id:"nodejs",
-    name:"Nodejs",
-    image_url:"/skills/nodejs.svg"
+    id: "nodejs",
+    name: "Nodejs",
+    image_url: "/skills/nodejs.svg"
   },
-  // {
-  //   id: "js",
-  //   name: "Javascript",
-  //   image_url: "/skills/js.png",
-  // },
-  // {
-  //   id: "ts",
-  //   name: "Typescript",
-  //   image_url: "/skills/typescript.png",
-  // },
   {
     id: "py",
     name: "Python",
     image_url: "/skills/python.png",
   },
+  {
+    id: "golangpl",
+    name: "Golang",
+    image_url: "/skills/go.png",
+  },
+
+  
 ];
 
 export const FrontendTechnologiesArrayList = [
-  // {
-  //   id: "techidnextjs",
-  //   name: "Nextjs",
-  //   image_url: "/skills/nextjs.png",
-  // },
+
   {
     id: "reactid",
     name: "React",
@@ -61,32 +59,31 @@ export const FrontendTechnologiesArrayList = [
 ];
 
 export const BackendTechnologiesArrayList = [
-  
-  // {
-    //   id: "nodejs",
-    //   name: "Nodejs",
-    //   image_url: "/skills/nodejs.svg",
-    // },
-    {
-      id: "spring-boot",
-      name: "SpringBoot",
-      image_url: "/skills/springboot.png",
-    },
-    {
-      id: "gin-gonic",
-      name: "Gin-Gonic",
-      image_url: "/skills/gin.png",
-    },
+
+ 
   {
-    id: "techidexpress",
-    name: "Express",
-    image_url: "/skills/expressjs.png",
+    id: "spring-boot",
+    name: "SpringBoot",
+    image_url: "/skills/springboot.png",
   },
+
+ {
+    id: "nodejs",
+    name: "Nodejs",
+    image_url: "/skills/nodejs.svg",
+  },
+
   // {
-  //   id: "nestjs",
-  //   name: "Nestjs",
-  //   image_url: "/skills/nest.png",
+  //   id: "gin-gonic",
+  //   name: "Gin-Gonic",
+  //   image_url: "/skills/gin.png",
   // },
+  // {
+  //   id: "techidexpress",
+  //   name: "Express",
+  //   image_url: "/skills/expressjs.png",
+  // },
+
 ];
 
 export const SkillsArrayList = [
@@ -130,11 +127,11 @@ export const SkillsArrayList = [
     name: "Nextjs",
     image_url: "/skills/nextjs.png",
   },
-  {
-    id: "techidredux",
-    name: "Redux",
-    image_url: "/skills/redux.png",
-  },
+  // {
+  //   id: "techidredux",
+  //   name: "Redux",
+  //   image_url: "/skills/redux.png",
+  // },
 
   {
     id: "techidnodejs",

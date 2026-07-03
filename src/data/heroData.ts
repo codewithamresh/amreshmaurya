@@ -1,6 +1,5 @@
 
-const quote = `Designing systems that are robust, scalable, and maintainable is not just engineering—it's architecture.`
-
+const quote = `Turning ideas into backend applications using Java, Spring Boot, REST APIs, SQL, and clean software design.`
 export default{
   quote
 }

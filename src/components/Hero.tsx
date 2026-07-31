@@ -1,220 +1,151 @@
-import { Github, Linkedin, Mail, ExternalLink, Terminal } from "lucide-react";
-import heroData from "../data/heroData";
+import { ArrowRight, Github, Linkedin, Mail, Terminal, Database, Server, Coffee, Cloud } from "lucide-react";
 
 interface HeroProps {
   isDark: boolean;
   isVisible: boolean;
 }
 
+// ─────────────────────────────────────────────
+// New 5-color system
+// ink    #0C1222  — dark bg / light-mode text
+// paper  #F8FAFC  — light bg / dark-mode text
+// accent #0EA5E9  — sky-500 (CTAs, links, prompts)
+// muted  #64748B  — secondary text / borders
+// signal #22C55E  — live status + success
+// ─────────────────────────────────────────────
+
+const stack = [
+  { icon: Coffee, label: "Java" },
+  { icon: Server, label: "Spring Boot" },
+  { icon: Database, label: "PostgreSQL" },
+  { icon: Cloud, label: "AWS" },
+];
+
 export const Hero = ({ isDark, isVisible }: HeroProps) => {
-  const cardBg = isDark
-    ? "bg-gray-900/50 border-gray-800"
-    : "bg-white/50 border-gray-200";
-  const textColor = isDark ? "text-gray-100" : "text-gray-900";
-  const subTextColor = isDark ? "text-gray-400" : "text-gray-600";
+  const bg = isDark ? "bg-[#0C1222]" : "bg-[#F8FAFC]";
+  const textPrimary = isDark ? "text-white" : "text-[#0C1222]";
+  const textMuted = isDark ? "text-[#94A3B8]" : "text-[#64748B]";
+  const border = isDark ? "border-[#1E293B]" : "border-[#E2E8F0]";
+  const badgeBg = isDark ? "bg-[#1E293B]" : "bg-white";
+  const panelBg = isDark ? "bg-[#111827]" : "bg-white";
+  const accent = "text-[#0EA5E9]";
 
   return (
-    <section
-      className={`relative min-h-screen flex flex-col justify-center transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"
-        }`}
-    >
-      {/* Background Decorative Blurs */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-      <div className="absolute top-1/2 -right-24 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl" />
-
-      <div className="relative z-10">
-        {/* Status Badge */}
-        <div
-          className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-8 transition-all duration-700 delay-100 ${isDark
-              ? "bg-gray-900/80 border-gray-700 shadow-2xl shadow-blue-500/5"
-              : "bg-gray-100 border-gray-300"
-            } ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-          </span>
-          <span className={`text-xs font-mono font-medium ${subTextColor}`}>
-            Open for Backend Engineering Roles
-          </span>
-        </div>
-
-        {/* Main Heading: Focusing on the hybrid strength */}
-        <div className="max-w-5xl mb-12">
-          <h1
-            className={`text-6xl md:text-8xl font-black tracking-tight mb-8 leading-[0.85] transition-all duration-700 delay-200 ${isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-10 opacity-0"
-              }`}
-          >
-            Building Reliable  <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-          Backend Solutions.
+    <section className={`relative min-h-screen ${bg} transition-colors duration-300`}>
+      <div
+        className={`mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center gap-14 px-6 py-20 transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"
+          }`}
+      >
+        {/* Top — Status + Heading block (centered) */}
+        <div className="flex w-full max-w-3xl flex-col items-center text-center">
+          {/* Status badge */}
+          <div className={`mb-8 inline-flex items-center gap-2.5 rounded-full border ${border} ${badgeBg} px-4 py-1.5 shadow-sm`}>
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22C55E] opacity-70" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#22C55E]" />
             </span>
+            <span className={`text-sm font-medium ${textMuted}`}>
+              Open for backend engineering roles
+            </span>
+          </div>
+
+          {/* Heading */}
+          <h1 className={`text-5xl font-bold leading-[1.08] tracking-tight sm:text-6xl md:text-7xl ${textPrimary}`}>
+            Building reliable
+            <br />
+            <span className={accent}>backend systems.</span>
           </h1>
 
-          <div
-            className={`flex items-center gap-4 transition-all duration-700 delay-300 ${isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-10 opacity-0"
-              }`}
-          >
-            <p
-              className={`text-xl md:text-2xl font-light ${subTextColor} max-w-2xl leading-relaxed`}
-            >
-              I'm{" "}
-              <span className={`font-semibold ${textColor}`}>
-                Amresh Maurya, 
+          {/* Subtitle */}
+          <p className={`mt-7 max-w-2xl text-lg leading-8 md:text-xl ${textMuted}`}>
+            I'm <span className={`font-semibold ${textPrimary}`}>Amresh Maurya</span>, a Java
+            backend developer building scalable REST APIs, secure auth systems,
+            payment solutions, and clean architecture with Java, Spring Boot,
+            PostgreSQL, Docker, and AWS.
+          </p>
+        </div>
+
+        {/* Middle — Tech stack + CTAs */}
+        <div className="flex w-full max-w-3xl flex-col items-center gap-8">
+          {/* Tech stack */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5">
+            {stack.map(({ icon: Icon, label }) => (
+              <span
+                key={label}
+                className={`inline-flex items-center gap-1.5 rounded-lg border ${border} ${badgeBg} px-3.5 py-1.5 text-sm font-medium ${textMuted} shadow-sm`}
+              >
+                <Icon className="h-3.5 w-3.5" />
+                {label}
               </span>
-       an aspiring Java Backend Developer. I build backend applications using Java, Spring Boot, SQL, and REST APIs.
-            </p>
-          </div>
-        </div>
-
-        {/* Metric Bar: Highlighting your 1+ years of work/teaching */}
-        <div
-          className={`grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16 py-10 border-y transition-all duration-1000 delay-500 ${isDark ? "border-white/10" : "border-black/5"
-            } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-        >
-          {/* Metric 1: Backend Consulting */}
-          <div className="group flex flex-col items-center md:items-start">
-            <div className="flex items-baseline gap-1">
-              <p className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-b from-blue-400 to-blue-600">
-                4+
-              </p>
-              <span className="text-sm font-bold text-blue-500/50">Months</span>
-            </div>
-            <p
-              className={`text-[10px] mt-2 uppercase tracking-[0.3em] font-black ${subTextColor} group-hover:text-blue-500 transition-colors`}
-            >
-              Consultant Software Developer 
-            </p>
-            <div className="h-0.5 w-0 group-hover:w-12 bg-blue-500 transition-all duration-500 mt-1" />
+            ))}
           </div>
 
-          {/* Metric 2: Teaching Experience */}
-          <div className="group flex flex-col items-center md:items-start">
-            <div className="flex items-baseline gap-1">
-              <p className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-b from-purple-400 to-purple-600">
-                1+
-              </p>
-              <span className="text-sm font-bold text-purple-500/50">Years</span>
-            </div>
-            <p
-              className={`text-[10px] mt-2 uppercase tracking-[0.3em] font-black ${subTextColor} group-hover:text-purple-500 transition-colors`}
-            >
-        PGT  Computer Science Teacher
-            </p>
-            <div className="h-0.5 w-0 group-hover:w-12 bg-purple-500 transition-all duration-500 mt-1" />
-          </div>
+          {/* CTAs + Social */}
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a href="#projects">
+              <button className="group flex items-center gap-2 rounded-xl bg-[#0EA5E9] px-6 py-3.5 font-semibold text-white shadow-sm transition-all duration-200 hover:scale-[1.03] hover:bg-[#0284C7] active:scale-[0.98]">
 
-          {/* Metric 3: Code Clarity */}
-          <div className="group flex flex-col items-center md:items-start">
-            <div className="flex items-baseline gap-1">
-              <p className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-b from-green-400 to-green-600">
-                Focused
-              </p>
-            </div>
-            <p
-              className={`text-[10px] mt-2 uppercase tracking-[0.3em] font-black ${subTextColor} group-hover:text-green-500 transition-colors`}
-            >
-              Clarity & Documentation
-            </p>
-            <div className="h-0.5 w-0 group-hover:w-12 bg-green-500 transition-all duration-500 mt-1" />
-          </div>
-        </div>
 
-        {/* Action Grid */}
-        <div
-          className={`grid grid-cols-1 md:grid-cols-12 gap-4 transition-all duration-700 delay-400 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-            }`}
-        >
-          {/* Main CTA */}
-          <div className="md:col-span-5 flex flex-col gap-4">
-            <a
-              href="https://amreshpro.medium.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative flex items-center justify-between p-6 rounded-3xl bg-gradient-to-br from-blue-600 to-purple-700 text-white overflow-hidden transition-all hover:shadow-2xl hover:shadow-blue-500/30 active:scale-[0.98]"
-            >
-              <div className="relative z-10">
-                <p className="text-[10px] font-mono opacity-80 mb-1 tracking-widest uppercase">
-                  cat ./technical-logs.md
-                </p>
-                <h3 className="text-2xl font-bold">Read My Articles</h3>
-              </div>
-              <ExternalLink className="w-8 h-8 opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-              <div className="absolute top-0 right-0 -mr-4 -mt-4 w-24 h-24 bg-white/10 rounded-full blur-2xl group-hover:bg-white/20 transition-colors" />
+                View projects
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+              </button>
             </a>
 
-            <div className="flex gap-4">
-              {[
-                { icon: Github, href: "https://github.com/amreshpro" },
-                {
-                  icon: Linkedin,
-                  href: "https://www.linkedin.com/in/amreshpro/",
-                },
-                { icon: Mail, href: "mailto:amresh.terminal@gmail.com" },
-              ].map((social, i) => (
+            {/* <button
+              className={`rounded-xl border-2 ${border} px-6 py-3.5 font-semibold ${textPrimary} transition-colors duration-200 ${
+                isDark ? "hover:bg-[#1E293B]" : "hover:bg-white"
+              }`}
+            >
+              Download resume
+            </button> */}
+
+            <div className="flex items-center gap-1.5">
+              {[Github, Linkedin, Mail].map((Icon, i) => (
                 <a
                   key={i}
-                  href={social.href}
-                  className={`flex-1 flex justify-center p-5 border rounded-2xl transition-all hover:-translate-y-2 ${cardBg} ${textColor} hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/5`}
+                  href="#"
+                  className={`rounded-lg border ${border} p-2.5 ${textMuted} transition-colors duration-200 ${isDark
+                      ? "hover:bg-[#1E293B] hover:text-white"
+                      : "hover:bg-white hover:text-[#0C1222]"
+                    }`}
                 >
-                  <social.icon className="w-6 h-6" />
+                  <Icon className="h-5 w-5" />
                 </a>
               ))}
             </div>
           </div>
+        </div>
 
-          {/* Skill/Quote Card */}
-          <div
-            className={`md:col-span-7 p-8 border rounded-3xl flex flex-col justify-between backdrop-blur-md ${cardBg}`}
-          >
-            <div className="flex justify-between items-start mb-8">
-              <div
-                className={`p-3 rounded-xl ${isDark ? "bg-white/5" : "bg-black/5"}`}
-              >
-                <Terminal className="w-6 h-6 text-blue-500" />
-              </div>
-              <div className="flex flex-wrap gap-2 justify-end max-w-[200px]">
-                {["Goalng", "Java", "SpringBoot", "Node.js", "PostgreSQL"].map(
-                  (tech, i) => (
-                    <div
-                      key={i}
-                      className={`px-3 py-1 text-[10px] font-mono border rounded-full uppercase tracking-tighter ${isDark
-                          ? "bg-white/5 border-white/10 text-gray-400"
-                          : "bg-black/5 border-black/10 text-gray-600"
-                        }`}
-                    >
-                      {tech}
-                    </div>
-                  ),
-                )}
-              </div>
-            </div>
-
-            <div>
-              <p
-                className={`text-xl font-mono mb-4 leading-tight italic ${textColor}`}
-              >
-                {heroData?.quote}
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-1">
-                  <div className="w-4 h-4 rounded-full bg-blue-500" />
-                  <div className="w-4 h-4 rounded-full bg-purple-500" />
-                </div>
-                <span
-                  className={`text-[10px] uppercase tracking-[0.25em] font-black ${subTextColor}`}
-                >
-                  Technical Educator & Consultant
-                </span>
-              </div>
-            </div>
+        {/* Bottom — Terminal mockup (full width, more prominent) */}
+        <div className={`w-full max-w-3xl overflow-hidden rounded-2xl border-2 ${border} ${panelBg} shadow-lg`}>
+          <div className={`flex items-center gap-2 border-b ${border} px-4 py-3`}>
+            <Terminal className={`h-4 w-4 ${textMuted}`} />
+            <span className={`text-xs font-semibold ${textMuted}`}>backend.jar — bash</span>
+          </div>
+          <div className="p-5 font-mono text-[13px] leading-7 sm:text-sm">
+            <p className={textMuted}>
+              <span className="font-bold text-[#0EA5E9]">$</span> java -jar backend.jar
+            </p>
+            <p className={textMuted}>Starting BackendApplication ...</p>
+            <p className={textMuted}>Loading Spring context ...</p>
+            <p className={textMuted}>
+              Connecting to PostgreSQL ...{" "}
+              <span className="font-semibold text-[#22C55E]">connected</span>
+            </p>
+            <p className={textMuted}>Registering REST endpoints ...</p>
+            <p className={`${textPrimary} font-semibold`}>
+              Server started on port <span className="text-[#0EA5E9]">8080</span>{" "}
+              <span className="text-[#22C55E]">✓</span>
+            </p>
+            <p className={`mt-2 ${textMuted}`}>
+              <span className="font-bold text-[#0EA5E9]">$</span>{" "}
+              <span className="animate-pulse">_</span>
+            </p>
           </div>
         </div>
       </div>
     </section>
   );
 };
+
+export default Hero;

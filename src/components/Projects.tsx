@@ -7,153 +7,144 @@ interface ProjectsProps {
 }
 
 export const Projects = ({ isDark, isVisible }: ProjectsProps) => {
-  const textClass = isDark ? "text-white" : "text-gray-900";
-  const subTextClass = isDark ? "text-gray-400" : "text-gray-600";
+  const textPrimary = isDark ? "text-[#FAFAFA]" : "text-[#0F172A]";
+  const textMuted = isDark ? "text-[#A1A1AA]" : "text-[#71717A]";
+  const border = isDark ? "border-[#27272A]" : "border-[#E4E4E7]";
+  const cardBg = isDark ? "bg-[#18181B]" : "bg-white";
+  const badgeBg = isDark ? "bg-[#27272A]" : "bg-[#F4F4F5]";
 
   return (
     <section
-      className={`mb-32 transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}
+      className={`mb-32 transition-all duration-700 ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}
     >
-      {/* Section Heading */}
-      <div className="flex flex-col mb-16">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="h-[2px] w-12 bg-purple-500" />
-          <span className="font-mono text-purple-500 tracking-widest text-sm uppercase">
+      {/* Section Header */}
+      <div className="mb-16 text-center md:text-left">
+        <div className="mb-4 flex items-center justify-center gap-3 md:justify-start">
+          <div className="h-[2px] w-10 bg-[#4F46E5]" />
+          <span className="font-mono text-sm uppercase tracking-widest text-[#4F46E5]">
             Selected Works
           </span>
         </div>
-        <h2
-          className={`text-5xl md:text-6xl font-black ${textClass} tracking-tighter`}
-        >
-          Featured{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">
-            Projects.
-          </span>
+        <h2 className={`text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl ${textPrimary}`}>
+          Featured <span className="text-[#4F46E5]"  id="projects">Projects.</span>
         </h2>
       </div>
 
-      <div className="space-y-24">
+      {/* Projects List */}
+      <div className="space-y-20 md:space-y-28">
         {projects.map((project, idx) => {
           const isEven = idx % 2 === 0;
+
           return (
             <div
               key={project.name}
-              className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} gap-12 items-center`}
+              className={`flex flex-col items-center gap-10 md:gap-14 ${
+                isEven ? "md:flex-row" : "md:flex-row-reverse"
+              }`}
             >
-              {/* Project Visual (Placeholder for Screenshot) */}
-              <div className="w-full md:w-3/5 relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-blue-600 rounded-[2.5rem] opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-500" />
+              {/* Visual */}
+              <div className="group relative w-full md:w-[55%]">
                 <div
-                  className={`relative aspect-video rounded-[2rem] border overflow-hidden ${isDark ? "border-white/10" : "border-black/5"} shadow-2xl`}
+                  className={`relative aspect-video overflow-hidden rounded-2xl border-2 ${border} ${cardBg} shadow-lg transition-transform duration-300 group-hover:scale-[1.015]`}
                 >
-                  <div
-                    className={`absolute inset-0 ${isDark ? "bg-gray-800" : "bg-gray-200"} flex items-center justify-center`}
-                  >
-                    {project.image_url ? (
-                      <img
-                        src={project.image_url}
-                        alt={project.name}
-                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-                      />
-                    ) : (
-                      <Code2
-                        className={`w-20 h-20 ${isDark ? "text-gray-700" : "text-gray-400"}`}
-                      />
-                    )}
-                    <div className="absolute top-6 left-6 flex gap-2">
-                      <div className="w-3 h-3 rounded-full bg-red-400" />
-                      <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                      <div className="w-3 h-3 rounded-full bg-green-400" />
+                  {project.image_url ? (
+                    <img
+                      src={project.image_url}
+                      alt={project.name}
+                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center">
+                      <Code2 className={`h-16 w-16 ${textMuted}`} />
                     </div>
+                  )}
+
+                  {/* Window dots */}
+                  <div className="absolute left-4 top-4 flex gap-1.5">
+                    <div className="h-2.5 w-2.5 rounded-full bg-[#EF4444]" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-[#EAB308]" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-[#22C55E]" />
                   </div>
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-purple-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6">
+
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center gap-4 bg-[#0F172A]/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <a
                       href={project.github}
-                      className="p-4 bg-white rounded-full text-purple-600 hover:scale-110 transition-transform shadow-xl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full bg-white p-3.5 text-[#4F46E5] shadow-lg transition-transform hover:scale-110"
                     >
-                      <Github className="w-6 h-6" />
+                      <Github className="h-5 w-5" />
                     </a>
                     <a
                       href={project.link}
-                      className="p-4 bg-white rounded-full text-purple-600 hover:scale-110 transition-transform shadow-xl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full bg-white p-3.5 text-[#4F46E5] shadow-lg transition-transform hover:scale-110"
                     >
-                      <ExternalLink className="w-6 h-6" />
+                      <ExternalLink className="h-5 w-5" />
                     </a>
                   </div>
                 </div>
               </div>
 
-              {/* Project Details */}
-              <div className="w-full md:w-2/5 space-y-6">
-              
+              {/* Content */}
+              <div className="w-full space-y-5 md:w-[45%]">
                 <div className="flex items-center gap-4">
-                  <span className="text-4xl font-black opacity-10 font-mono">
+                  <span className={`font-mono text-3xl font-black opacity-20 ${textPrimary}`}>
                     0{idx + 1}
                   </span>
                   <div
-                    className={`flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold border ${
-                      isDark
-                        ? "border-purple-500/30 text-purple-400 bg-purple-500/10"
-                        : "border-purple-200 text-purple-600 bg-purple-50"
-                    }`}
+                    className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold ${border} ${badgeBg} ${textMuted}`}
                   >
-                    <Star className="w-3 h-3 fill-current" /> {project.stars}{" "}
-                    Stars
+                    <Star className="h-3 w-3 fill-[#14B8A6] text-[#14B8A6]" />
+                    {project.stars} Stars
                   </div>
                 </div>
 
-                <h3
-                  className={`text-4xl font-bold ${textClass} hover:text-purple-500 transition-colors cursor-default`}
-                >
+                <h3 className={`text-3xl font-bold tracking-tight ${textPrimary}`}>
                   {project.name}
                 </h3>
 
-                <p className={`${subTextClass} text-lg leading-relaxed`}>
+                <p className={`text-base leading-relaxed md:text-lg ${textMuted}`}>
                   {project.description}
                 </p>
 
+                {/* Tech pills */}
                 <div className="flex flex-wrap gap-2">
-                  {/* Splitting tech string into pills */}
-                  {project.tech.split(",").map((t) => (
+                  {project.tech.split(",").map((tech) => (
                     <span
-                      key={t}
-                      className={`px-4 py-1.5 rounded-xl text-xs font-mono tracking-tight border transition-colors ${
-                        isDark
-                          ? "bg-white/5 border-white/10 text-gray-300"
-                          : "bg-black/5 border-black/10 text-gray-600"
-                      } group-hover:border-purple-500/50`}
+                      key={tech}
+                      className={`rounded-lg border px-3 py-1.5 font-mono text-xs ${border} ${badgeBg} ${textMuted}`}
                     >
-                      {t.trim()}
+                      {tech.trim()}
                     </span>
                   ))}
                 </div>
-<div className="links flex items-center gap-4 mt-4">
-  <a
-                      href={project.link}
-                      className="flex items-center gap-2 p-2 px-4 bg-slate-800 border-2 border-b-fuchsia-600  border-t-amber-600 border-l-blue-600 border-r-rose-600 rounded-full text-purple-100 hover:scale-110 transition-transform shadow-xl"
-                     
-                    >
-                  Live    <ExternalLink className="w-6 h-6" />
-                    </a>
-      <a
-                      href={project.github}
-                      className="flex items-center gap-2 p-2 px-4 bg-slate-800 border-2 border-b-fuchsia-600  border-t-amber-600 border-l-blue-600 border-r-rose-600 rounded-full text-purple-100 hover:scale-110 transition-transform shadow-xl"
-                    >
-                  Github    <Github className="w-6 h-6" />
-                    </a>
-                    
-</div>
-                <div className="pt-4">
+
+                {/* Action buttons */}
+                <div className="flex flex-wrap items-center gap-3 pt-2">
                   <a
                     href={project.link}
                     target="_blank"
-                    className={`inline-flex items-center gap-2 font-bold group ${textClass}`}
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl bg-[#4F46E5] px-5 py-2.5 text-sm font-semibold text-white transition-all hover:scale-[1.03] hover:bg-[#4338CA] active:scale-[0.98]"
                   >
-                    Explore Repository
-                    <div className="p-2 rounded-full bg-purple-500 text-white group-hover:translate-x-2 transition-transform">
-                      <ExternalLink className="w-4 h-4" />
-                    </div>
+                    Live Demo
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-2 rounded-xl border-2 px-5 py-2.5 text-sm font-semibold transition-colors ${border} ${textPrimary} ${
+                      isDark ? "hover:bg-[#27272A]" : "hover:bg-[#F4F4F5]"
+                    }`}
+                  >
+                    GitHub
+                    <Github className="h-4 w-4" />
                   </a>
                 </div>
               </div>
@@ -162,22 +153,21 @@ export const Projects = ({ isDark, isVisible }: ProjectsProps) => {
         })}
       </div>
 
-      {/* Modern Footer Button */}
-      <div className="mt-24 text-center">
+      {/* Browse more */}
+      <div className="mt-20 text-center">
         <a
           href="https://github.com/amreshcraft?tab=repositories"
           target="_blank"
-          className={`group inline-flex items-center gap-4 px-8 py-4 rounded-2xl border-2 transition-all font-bold ${
-            isDark
-              ? "border-gray-800 hover:border-blue-500 text-gray-400 hover:text-white"
-              : "border-gray-200 hover:border-blue-500 text-gray-600 hover:text-black"
-          }`}
+          rel="noopener noreferrer"
+          className={`group inline-flex items-center gap-3 rounded-2xl border-2 px-7 py-3.5 font-semibold transition-all ${border} ${textMuted} hover:border-[#4F46E5] hover:text-[#4F46E5]`}
         >
-          <Layers className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+          <Layers className="h-5 w-5 transition-transform group-hover:rotate-12" />
           Browse Archive
-          <span className="text-blue-500">More Projects</span>
+          <span className="text-[#4F46E5]">More Projects</span>
         </a>
       </div>
     </section>
   );
 };
+
+export default Projects;

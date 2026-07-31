@@ -8,40 +8,42 @@ interface BlogProps {
 }
 
 export const Blog = ({ isDark, isVisible }: BlogProps) => {
-  const textClass = isDark ? "text-white" : "text-slate-900";
-  const subTextClass = isDark ? "text-slate-400" : "text-slate-500";
+  
+  const textPrimary = isDark ? "text-[#FAFAFA]" : "text-[#0F172A]";
+  const textMuted = isDark ? "text-[#A1A1AA]" : "text-[#71717A]";
+  const border = isDark ? "border-[#27272A]" : "border-[#E4E4E7]";
+  const cardBg = isDark ? "bg-[#18181B]" : "bg-white";
+  const badgeBg = isDark ? "bg-[#27272A]" : "bg-[#F4F4F5]";
 
   return (
     <section
       id="journal"
-      className={`py-24 px-4 max-w-7xl mx-auto transition-all duration-1000 transform ${
-        isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+      className={`mb-32 transition-all duration-700 ${
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
       }`}
     >
-      {/* --- Section Header --- */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-        <div className="relative">
-          <div className="flex items-center gap-2 mb-2">
-            <div className="h-1 w-8 bg-emerald-500 rounded-full" />
-            <span className="text-emerald-500 font-mono text-sm tracking-tighter uppercase font-bold">
+      {/* Section Header */}
+      <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div>
+          <div className="mb-4 flex items-center gap-3">
+            <div className="h-[2px] w-10 bg-[#4F46E5]" />
+            <span className="font-mono text-sm uppercase tracking-widest text-[#4F46E5]">
               Insights & Articles
             </span>
           </div>
-          <h2
-            className={`text-5xl md:text-6xl font-black tracking-tight ${textClass}`}
-          >
-            The Journal<span className="text-emerald-500">.</span>
+          <h2 className={`text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl ${textPrimary}`}>
+            The Journal<span className="text-[#4F46E5]">.</span>
           </h2>
         </div>
 
-        <p className={`max-w-md ${subTextClass} text-lg leading-relaxed`}>
-          Documenting my process, deep-dives into JavaScript internals, and the
+        <p className={`max-w-md text-base leading-relaxed md:text-lg ${textMuted}`}>
+          Documenting my process, deep-dives into backend systems, and the
           evolving landscape of full-stack engineering.
         </p>
       </div>
 
-      {/* --- Bento Grid --- */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+      {/* Bento Grid */}
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-12">
         {blogPosts.map((post: BlogPost, idx) => {
           const isMain = idx === 0;
 
@@ -51,33 +53,24 @@ export const Blog = ({ isDark, isVisible }: BlogProps) => {
               href={post.link}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group relative flex flex-col justify-between overflow-hidden rounded-[2.5rem] p-8 md:p-10 transition-all duration-700
-                ${isMain ? "md:col-span-8 min-h-[500px]" : "md:col-span-4 min-h-[350px]"} 
-                ${
-                  isDark
-                    ? "bg-slate-900/50 border border-slate-800 hover:border-emerald-500/50"
-                    : "bg-white border border-slate-100 hover:border-emerald-200 shadow-sm"
-                }
-              `}
+              className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border p-7 transition-all duration-300 md:p-8
+                ${isMain ? "md:col-span-8 min-h-[420px]" : "md:col-span-4 min-h-[320px]"}
+                ${cardBg} ${border} hover:border-[#4F46E5]/40 hover:shadow-lg`}
             >
-              {/* Interactive Background Gradient */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 blur-[100px] rounded-full -mr-20 -mt-20 group-hover:bg-emerald-500/20 transition-colors duration-700" />
-
-              {/* Top Row: Meta & Icon */}
-              <div className="relative z-10 flex justify-between items-start">
-                <div className="space-y-4">
-                  <div
-                    className={`flex items-center gap-2 text-xs font-bold tracking-widest uppercase ${isDark ? "text-emerald-400" : "text-emerald-600"}`}
-                  >
-                    <Calendar className="w-4 h-4" />
+              {/* Top Meta */}
+              <div className="relative z-10 flex items-start justify-between">
+                <div className="space-y-3">
+                  <div className={`flex items-center gap-2 text-xs font-semibold uppercase tracking-wider ${textMuted}`}>
+                    <Calendar className="h-3.5 w-3.5" />
                     {post.date}
                   </div>
+
                   {post.tags && (
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5">
                       {post.tags.slice(0, 3).map((tag) => (
                         <span
                           key={tag}
-                          className={`text-[10px] px-2.5 py-1 rounded-md border ${isDark ? "border-slate-700 bg-slate-800 text-slate-400" : "border-slate-200 bg-slate-50 text-slate-500"}`}
+                          className={`rounded-md border px-2 py-0.5 text-[11px] font-medium ${border} ${badgeBg} ${textMuted}`}
                         >
                           #{tag}
                         </span>
@@ -85,72 +78,78 @@ export const Blog = ({ isDark, isVisible }: BlogProps) => {
                     </div>
                   )}
                 </div>
+
                 <div
-                  className={`p-3 rounded-2xl transition-all duration-500 ${isDark ? "bg-slate-800 group-hover:bg-emerald-500" : "bg-slate-100 group-hover:bg-emerald-500"}`}
+                  className={`rounded-xl p-2.5 transition-all duration-300 ${
+                    isDark
+                      ? "bg-[#27272A] group-hover:bg-[#4F46E5]"
+                      : "bg-[#F4F4F5] group-hover:bg-[#4F46E5]"
+                  }`}
                 >
                   <ArrowUpRight
-                    className={`w-5 h-5 transition-colors duration-500 ${isDark ? "text-emerald-500 group-hover:text-white" : "text-slate-600 group-hover:text-white"}`}
+                    className={`h-4 w-4 transition-colors ${
+                      isDark
+                        ? "text-[#A1A1AA] group-hover:text-white"
+                        : "text-[#71717A] group-hover:text-white"
+                    }`}
                   />
                 </div>
               </div>
 
-              {/* Bottom Row: Content */}
-              <div className="relative z-10 mt-12">
+              {/* Content */}
+              <div className="relative z-10 mt-10">
                 <h3
-                  className={`${isMain ? "text-3xl md:text-5xl" : "text-2xl"} font-bold mb-4 tracking-tight leading-[1.1] ${textClass}`}
+                  className={`${
+                    isMain ? "text-2xl md:text-4xl" : "text-xl md:text-2xl"
+                  } mb-3 font-bold leading-tight tracking-tight ${textPrimary}`}
                 >
                   {post.title}
                 </h3>
+
                 <p
-                  className={`${subTextClass} ${isMain ? "text-xl" : "text-base"} line-clamp-3 mb-8 max-w-2xl`}
+                  className={`mb-6 line-clamp-3 ${
+                    isMain ? "text-base md:text-lg" : "text-sm md:text-base"
+                  } ${textMuted}`}
                 >
                   {post.description}
                 </p>
 
-                <div className="flex items-center gap-2 font-bold text-sm tracking-wide group-hover:gap-4 transition-all duration-300">
-                  <span className={isDark ? "text-white" : "text-slate-900"}>
-                    READ ARTICLE
-                  </span>
-                  <div className="h-0.5 w-12 bg-emerald-500" />
+                <div className="flex items-center gap-2 text-sm font-semibold transition-all duration-300 group-hover:gap-3">
+                  <span className={textPrimary}>Read Article</span>
+                  <div className="h-0.5 w-8 bg-[#4F46E5]" />
                 </div>
               </div>
-
-              {/* Background Noise/Texture Overlay */}
-              <div
-                className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay"
-                style={{
-                  backgroundImage: `url('https://grainy-gradients.vercel.app/noise.svg')`,
-                }}
-              />
             </a>
           );
         })}
 
-        {/* --- View All Footer Card --- */}
+        {/* View All Card */}
         <a
           href="https://amreshpro.medium.com"
           target="_blank"
-          className={`md:col-span-4 rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center transition-all duration-500 border-2 border-dashed
-            ${isDark ? "border-slate-800 hover:border-emerald-500/50 bg-slate-900/20" : "border-slate-200 hover:border-emerald-200 bg-slate-50/50"}
-            group relative overflow-hidden`}
+          rel="noopener noreferrer"
+          className={`group relative flex min-h-[320px] flex-col items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed p-8 text-center transition-all duration-300 md:col-span-4
+            ${border} ${isDark ? "bg-[#18181B]/40 hover:border-[#4F46E5]/50" : "bg-[#FAFAFA] hover:border-[#4F46E5]/40"}`}
         >
-          <div className="mb-6 relative">
-            <div className="absolute inset-0 bg-emerald-500 blur-2xl opacity-20 group-hover:opacity-40 transition-opacity" />
-            <div className="relative p-6 rounded-full bg-emerald-500/10 text-emerald-500 transition-transform duration-500 group-hover:scale-110">
-              <BookOpen className="w-10 h-10" />
-            </div>
+          <div className="mb-5 rounded-2xl bg-[#4F46E5]/10 p-5 text-[#4F46E5] transition-transform duration-300 group-hover:scale-110">
+            <BookOpen className="h-8 w-8" />
           </div>
-          <h4 className={`text-xl font-bold mb-2 ${textClass}`}>
+
+          <h4 className={`mb-2 text-lg font-bold ${textPrimary}`}>
             Curious for more?
           </h4>
-          <p className={`${subTextClass} mb-6 text-sm`}>
-            Explore my full collection of technical guides and stories.
+          <p className={`mb-5 max-w-xs text-sm ${textMuted}`}>
+            Explore the full collection of technical guides and stories.
           </p>
-          <div className="flex items-center gap-2 text-emerald-500 font-bold group-hover:translate-x-2 transition-transform">
-            View All on Medium <ChevronRight className="w-5 h-5" />
+
+          <div className="flex items-center gap-1.5 font-semibold text-[#4F46E5] transition-transform group-hover:translate-x-1">
+            View All on Medium
+            <ChevronRight className="h-4 w-4" />
           </div>
         </a>
       </div>
     </section>
   );
 };
+
+export default Blog;

@@ -1,7 +1,15 @@
 import type { Project, BlogPost } from "../types/index";
 
 export const projects: Project[] = [
-
+{
+  "name": "PayFlow - Digital Payment Backend",
+  "description": "A secure and scalable digital payment backend built with Spring Boot. Features include JWT authentication, role-based access control, merchant and customer management, wallet operations, transaction processing, payment gateway integration, Redis caching, Kafka event-driven messaging, and RESTful APIs. Designed with clean architecture, Docker support, and production-ready best practices.",
+  "stars": 0,
+  "tech": "Spring Boot, Spring Security, JWT, PostgreSQL, Redis, Kafka, Docker",
+  "link": "https://payflow.amreshmaurya.com",
+  "github": "https://github.com/amreshcraft/payflow",
+  "image_url": "/projects/payflow.png"
+},
 {
   "name": "BookStore - E-commerce Backend",
   "description": "A complete e-commerce backend application built with Spring Boot. Features include user authentication with JWT, role-based access control, product and inventory management, cart and order processing, secure REST APIs, and AWS S3 integration for image storage. Designed with scalable architecture and clean code practices.",
